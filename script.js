@@ -13,19 +13,19 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase()
 
   if (playerSelection === computerSelection) {
-    return "Nobody wins! its a TIE."
+    return { winner: null, message: "Nobody wins! its a TIE." }
   }
   else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`
+    return { winner: "player", message: `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`}
   }
   else if (playerSelection === "scissors" && computerSelection === "paper") {
-    return `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`
+    return { winner: "player", message: `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`}
   }
   else if (playerSelection === "paper" && computerSelection === "rock") {
-    return `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`
+    return { winner: "player", message: `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`}
   }
   else {
-    return `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`
+    return { winner: "computer", message: `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`}
   }
 }
 
@@ -34,3 +34,25 @@ function playRound(playerSelection, computerSelection) {
 // const computerSelection = getComputerChoice();
 // console.log(playRound(playerSelection, computerSelection));
 
+function playGame() {
+  let playerWinCount = 0
+  let computerWinCount = 0
+  for (let i = 0; i < 5; i++) {
+    let playerInput = prompt("Enter your choice.")
+    let result = playRound(playerInput, getComputerChoice())
+    if (result.winner === "player") {
+      playerWinCount++
+    }
+    else if(result.winner === "computer") {
+      computerWinCount++
+    }
+
+    console.log(result.message)
+  }
+
+  if (playerWinCount > computerWinCount) { console.log("Player Wins!")}
+  else if (computerWinCount > playerWinCount) {console.log("Computer Wins!")}
+  else {console.log("Nobody wins! its a tie.")}
+}
+
+playGame()
