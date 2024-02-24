@@ -1,1 +1,1 @@
-# Odin Project - Foundations Path - Project Landing Page
+# Odin Project - Foundations Path - Project Rock Paper Scissors
