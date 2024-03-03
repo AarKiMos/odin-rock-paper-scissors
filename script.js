@@ -17,38 +17,30 @@ function playRound(playerSelection, computerSelection) {
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     return {
       winner: "player",
-      message: `You Win! ${
-        playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
-      } beats ${
-        computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
-      }`,
+      message: `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+        } beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
+        }`,
     };
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     return {
       winner: "player",
-      message: `You Win! ${
-        playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
-      } beats ${
-        computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
-      }`,
+      message: `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+        } beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
+        }`,
     };
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     return {
       winner: "player",
-      message: `You Win! ${
-        playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
-      } beats ${
-        computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
-      }`,
+      message: `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+        } beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
+        }`,
     };
   } else {
     return {
       winner: "computer",
-      message: `You Lose! ${
-        computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
-      } beats ${
-        playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
-      }`,
+      message: `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
+        } beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+        }`,
     };
   }
 }

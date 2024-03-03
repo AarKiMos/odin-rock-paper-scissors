@@ -1,20 +1,37 @@
 * {
-box-sizing: border-box;
-padding: 0;
-margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 #header {
-    display: flex;
-    align-items: end;
-    padding: 8px;
-    border-bottom: 1px solid black;
+  display: flex;
+  align-items: end;
+  padding: 8px;
+  border-bottom: 1px solid black;
 }
 
 #header-title {
-    font-size: 4rem;
-    flex: 1 1 0;
+  font-size: 4rem;
+  flex: 1 1 0;
 }
 #header-author {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
+}
+
+#main {
+  min-height: calc(100vh - 9rem);
+}
+
+#footer {
+  min-height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+}
+
+#footer-author-link {
+  color: green;
+  font-weight: 700;
 }
