@@ -15,12 +15,28 @@
     </div>
 
     <div id="main">
-      <div id="control-buttons">
-        <button class="choice-button">Rock</button>
-        <button class="choice-button">Paper</button>
-        <button class="choice-button">Scissors</button>
+      <div class="left">
+        <div class="name-box" id="player-namebox" contenteditable="True">
+          Player
+        </div>
+        <div id="control-buttons">
+          <div id="rock" class="choice-button">
+            <img src="./images/rps_rock.png" alt="Rock" />
+          </div>
+          <div id="paper" class="choice-button">
+            <img src="./images/rps_paper.png" alt="Paper" />
+          </div>
+          <div id="scissors" class="choice-button">
+            <img src="./images/rps_scissors.png" alt="Scissors" />
+          </div>
+        </div>
       </div>
-      <div id="result-box"></div>
+      <div class="center">
+        <div id="result-box"></div>
+      </div>
+      <div class="right">
+        <div class="name-box" id="computer-namebox">Computer</div>
+      </div>
     </div>
 
     <div id="footer">
