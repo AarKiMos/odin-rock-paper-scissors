@@ -14,7 +14,7 @@
       <div id="header-author">Aachman Mittal</div>
     </div>
 
-    <div class="modal-background" hidden>
+    <div id="welcome-modal" class="modal-background">
       <div class="modal">
         <div id="welcome-text">Welcome!</div>
 
@@ -33,6 +33,32 @@
           </div>
           <div class="modal-bottom-right">
             <div id="start-btn">Start!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="win-modal" class="modal-background display-none">
+      <div class="modal">
+        <div id="win-text">Hooray</div>
+
+        <div class="win-container">
+          <div id="win-image">
+            <img
+              src="./images/sparkles.gif"
+              alt="Horray"
+              id="img-win"
+              class="display-none"
+            />
+            <img
+              src="./images/shrug.gif"
+              alt="Better luck next time"
+              id="img-loss"
+              class="display-none"
+            />
+          </div>
+          <div class="win-reset-container">
+            <div id="win-reset">RESET</div>
           </div>
         </div>
       </div>

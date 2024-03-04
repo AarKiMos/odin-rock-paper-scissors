@@ -108,11 +108,46 @@ body {
   flex-direction: column;
 }
 
-#welcome-text {
+#welcome-text,
+#win-text {
   font-weight: 600;
   font-size: 3rem;
   text-align: center;
   border-bottom: 1px solid black;
+}
+
+.win-container {
+  height: calc(100% - 4.5rem);
+  display: flex;
+}
+
+#win-image {
+  width: 50%;
+}
+
+#win-image > img {
+  height: 100%;
+  margin: auto;
+}
+
+.win-reset-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#win-reset {
+  border: 1px solid black;
+  font-size: 3rem;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#win-reset:hover {
+  transform: scale(1.1);
+  border-width: 2px;
+  font-weight: 500;
 }
 
 .modal-bottom {
@@ -306,4 +341,8 @@ body {
 #footer-author-link {
   color: green;
   font-weight: 700;
+}
+
+.display-none {
+  display: none;
 }
