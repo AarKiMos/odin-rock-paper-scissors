@@ -14,7 +14,7 @@
       <div id="header-author">Aachman Mittal</div>
     </div>
 
-    <div class="modal-background">
+    <div class="modal-background" hidden>
       <div class="modal">
         <div id="welcome-text">Welcome!</div>
 
@@ -60,9 +60,13 @@
       <div class="center">
         <div id="result-box"></div>
         <div id="score-box">
-          <div id="player-score"></div>
+          <div class="score-display-container">
+            <div id="player-score" class="score-display"></div>
+          </div>
           <div id="reset-button">RESET</div>
-          <div id="computer-score"></div>
+          <div class="score-display-container">
+            <div id="computer-score" class="score-display"></div>
+          </div>
         </div>
       </div>
       <div class="right">

@@ -12,9 +12,6 @@ function getComputerChoice() {
   return OPTIONS[random_choice];
 }
 
-// Test getComputerChoice
-// console.log("Computer chose", getComputerChoice())
-
 function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
 
@@ -49,6 +46,11 @@ function playRound(playerSelection, computerSelection) {
       )}`,
     };
   }
+}
+
+function updateScore() {
+  playerScoreDisplay.innerText = playerScore;
+  computerScoreDisplay.innerText = computerScore;
 }
 
 // Test playRound
@@ -90,11 +92,19 @@ startButton.addEventListener("click", (e) => {
   modal.setAttribute("hidden", "true");
 });
 
-let buttons = document.querySelectorAll(".choice-button");
-let resultBox = document.querySelector("#result-box");
+const buttons = document.querySelectorAll(".choice-button");
+const resultBox = document.querySelector("#result-box");
 
-let playerChoiceDisplay = document.querySelector("#player-choice-box");
-let computerChoiceDisplay = document.querySelector("#computer-choice-box");
+const playerChoiceDisplay = document.querySelector("#player-choice-box");
+const computerChoiceDisplay = document.querySelector("#computer-choice-box");
+
+const playerScoreDisplay = document.querySelector("#player-score");
+const computerScoreDisplay = document.querySelector("#computer-score");
+
+let playerScore = 0;
+let computerScore = 0;
+
+updateScore();
 
 buttons.forEach((button) =>
   button.addEventListener("click", (e) => {
@@ -105,8 +115,26 @@ buttons.forEach((button) =>
     computerChoiceDisplay.innerText = capitalise(computerChoice);
 
     let result = playRound(playerChoice, computerChoice);
-    let new_line = document.createElement("div");
+
+    if (result.winner == "player") playerScore++;
+    if (result.winner == "computer") computerScore++;
+
+    updateScore();
+
+    let new_line = document.createElement("p");
     new_line.innerText = result.message;
     resultBox.appendChild(new_line);
   })
 );
+
+const resetBtn = document.querySelector("#reset-button");
+resetBtn.addEventListener("click", (e) => {
+  playerScore = 0;
+  computerScore = 0;
+  updateScore();
+
+  playerChoiceDisplay.innerText = "";
+  computerChoiceDisplay.innerText = "";
+
+  resultBox.innerHTML = "";
+});
