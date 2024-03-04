@@ -209,6 +209,16 @@ body {
   flex-grow: 1;
 }
 
+.choice-display-header {
+  font-size: 1.5rem;
+  text-align: center;
+  border-bottom: 1px dashed black;
+}
+
+.choice-display {
+  text-align: center;
+  font-size: 6rem;
+}
 #control-buttons {
   display: flex;
   justify-content: center;
@@ -217,7 +227,6 @@ body {
 }
 
 .choice-button {
-  /* background-color: pink; */
   cursor: pointer;
 }
 
@@ -237,6 +246,37 @@ body {
 .choice-button:last-child {
   transform-origin: bottom;
   transform: rotate(20deg);
+}
+
+#result-box {
+  height: 70%;
+  overflow-y: auto;
+}
+
+#score-box {
+  height: 30%;
+  background-color: pink;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#player-score,
+#computer-score {
+  border: 1px solid black;
+  background-color: aqua;
+  width: 30%;
+}
+
+#reset-button {
+  border: 1px solid black;
+  background-color: aqua;
+  width: 30%;
+
+  font-size: 3rem;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #footer {

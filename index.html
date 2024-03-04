@@ -40,10 +40,11 @@
 
     <div id="main">
       <div class="left">
-        <div class="name-box" id="player-namebox" contenteditable="True">
-          Player
+        <div class="name-box" id="player-namebox">Player</div>
+        <div class="temp">
+          <div class="choice-display-header">Your Choice</div>
+          <div id="player-choice-box" class="choice-display"></div>
         </div>
-        <div class="temp"></div>
         <div id="control-buttons">
           <div id="rock" class="choice-button">
             <img src="./images/rps_rock.png" alt="Rock" />
@@ -58,9 +59,18 @@
       </div>
       <div class="center">
         <div id="result-box"></div>
+        <div id="score-box">
+          <div id="player-score"></div>
+          <div id="reset-button">RESET</div>
+          <div id="computer-score"></div>
+        </div>
       </div>
       <div class="right">
         <div class="name-box" id="computer-namebox">Computer</div>
+        <div class="temp">
+          <div class="choice-display-header">Computer's Choice</div>
+          <div id="computer-choice-box" class="choice-display"></div>
+        </div>
       </div>
     </div>
 
