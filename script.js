@@ -53,35 +53,7 @@ function updateScore() {
   computerScoreDisplay.innerText = computerScore;
 }
 
-// Test playRound
-// const playerSelection = "RocK";
-// const computerSelection = getComputerChoice();
-// console.log(playRound(playerSelection, computerSelection));
-
-// function playGame() {
-//   let playerWinCount = 0
-//   let computerWinCount = 0
-//   for (let i = 0; i < 5; i++) {
-//     let playerInput = prompt("Enter your choice.")
-//     let result = playRound(playerInput, getComputerChoice())
-//     if (result.winner === "player") {
-//       playerWinCount++
-//     }
-//     else if(result.winner === "computer") {
-//       computerWinCount++
-//     }
-
-//     console.log(result.message)
-//   }
-
-//   if (playerWinCount > computerWinCount) { console.log("Player Wins!")}
-//   else if (computerWinCount > playerWinCount) {console.log("Computer Wins!")}
-//   else {console.log("Nobody wins! its a tie.")}
-// }
-
-// playGame()
-
-let modal = document.querySelector(".modal-background");
+let modal = document.querySelector("#welcome-modal");
 let startButton = document.querySelector("#start-btn");
 
 startButton.addEventListener("click", (e) => {
@@ -89,7 +61,7 @@ startButton.addEventListener("click", (e) => {
   let PlayerNameBox = document.querySelector("#player-namebox");
 
   PlayerNameBox.innerText = PlayerNameInput.value || "Player";
-  modal.setAttribute("hidden", "true");
+  modal.classList.add("display-none");
 });
 
 const buttons = document.querySelectorAll(".choice-button");
@@ -104,31 +76,56 @@ const computerScoreDisplay = document.querySelector("#computer-score");
 let playerScore = 0;
 let computerScore = 0;
 
+let roundCount = 0;
+
 updateScore();
 
-buttons.forEach((button) =>
-  button.addEventListener("click", (e) => {
-    let playerChoice = e.target.alt;
-    let computerChoice = getComputerChoice();
+function handlePlayerChoiceClick(e) {
+  roundCount++;
 
-    playerChoiceDisplay.innerText = playerChoice;
-    computerChoiceDisplay.innerText = capitalise(computerChoice);
+  let playerChoice = e.target.alt;
+  let computerChoice = getComputerChoice();
 
-    let result = playRound(playerChoice, computerChoice);
+  playerChoiceDisplay.innerText = playerChoice;
+  computerChoiceDisplay.innerText = capitalise(computerChoice);
 
-    if (result.winner == "player") playerScore++;
-    if (result.winner == "computer") computerScore++;
+  let result = playRound(playerChoice, computerChoice);
 
-    updateScore();
+  if (result.winner == "player") playerScore++;
+  if (result.winner == "computer") computerScore++;
 
-    let new_line = document.createElement("p");
-    new_line.innerText = result.message;
-    resultBox.appendChild(new_line);
-  })
-);
+  updateScore();
 
-const resetBtn = document.querySelector("#reset-button");
-resetBtn.addEventListener("click", (e) => {
+  let new_line = document.createElement("p");
+  new_line.innerText = `R${roundCount}: ${result.message}`;
+  resultBox.appendChild(new_line);
+
+  checkWinCondition();
+}
+
+const winModal = document.getElementById("win-modal");
+const winImage = document.getElementById("img-win");
+const lossImage = document.getElementById("img-loss");
+const winText = document.getElementById("win-text");
+
+function checkWinCondition() {
+  if (playerScore == 5) {
+    winImage.classList.remove("display-none");
+    lossImage.classList.add("display-none");
+    winModal.classList.remove("display-none");
+    winText.innerText = "Hooray!! You Won!!!";
+  }
+  if (computerScore == 5) {
+    winImage.classList.add("display-none");
+    lossImage.classList.remove("display-none");
+    winModal.classList.remove("display-none");
+    winText.innerText = "Computer Won, Better luck next time.";
+  }
+}
+
+function handleReset() {
+  roundCount = 0;
+
   playerScore = 0;
   computerScore = 0;
   updateScore();
@@ -137,4 +134,16 @@ resetBtn.addEventListener("click", (e) => {
   computerChoiceDisplay.innerText = "";
 
   resultBox.innerHTML = "";
-});
+
+  winModal.classList.add("display-none");
+}
+
+buttons.forEach((button) =>
+  button.addEventListener("click", handlePlayerChoiceClick)
+);
+
+const resetBtn = document.querySelector("#reset-button");
+resetBtn.addEventListener("click", handleReset);
+
+const winResetBtn = document.querySelector("#win-reset");
+winResetBtn.addEventListener("click", handleReset);
