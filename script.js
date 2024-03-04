@@ -81,6 +81,17 @@ function playRound(playerSelection, computerSelection) {
 
 // playGame()
 
+let modal = document.querySelector(".modal-background");
+let startButton = document.querySelector("#start-btn");
+
+startButton.addEventListener("click", (e) => {
+  let PlayerNameInput = document.querySelector("#player-name-input");
+  let PlayerNameBox = document.querySelector("#player-namebox");
+
+  PlayerNameBox.innerText = PlayerNameInput.value || "Player";
+  modal.setAttribute("hidden", "true");
+});
+
 let buttons = document.querySelectorAll(".choice-button");
 let resultBox = document.querySelector("#result-box");
 buttons.forEach((button) =>

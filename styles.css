@@ -1,3 +1,4 @@
+/* --------------- CSS Rest ------------------- */
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -61,6 +62,8 @@ h6 {
   isolation: isolate;
 }
 
+/* -------------------------------------------- */
+
 body {
   border: 2px solid black;
 }
@@ -73,11 +76,108 @@ body {
 }
 
 #header-title {
-  font-size: 4rem;
-  flex: 1 1 0;
+  font-size: 3rem;
+  flex-grow: 1;
 }
+
 #header-author {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
+}
+
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.modal {
+  background-color: white;
+  height: 60vh;
+  width: 60vw;
+  position: absolute;
+  top: 20vh;
+  left: 20vw;
+  border: 2px solid black;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#welcome-text {
+  font-weight: 600;
+  font-size: 3rem;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.modal-bottom {
+  flex-grow: 1;
+  display: flex;
+}
+
+.modal-bottom-left {
+  border-right: 1px solid black;
+  min-width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.center-text {
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.player-input-form {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#player-name-input {
+  width: 100%;
+  height: 3rem;
+  background-color: transparent;
+  text-align: center;
+  font-size: 2rem;
+  border: unset;
+}
+
+#player-name-input:hover {
+  transform: scale(1.1);
+}
+
+#player-name-input:focus-visible {
+  outline: unset;
+}
+
+.modal-bottom-right {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+#start-btn {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  font-size: 2rem;
+  line-height: 98px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#start-btn:hover {
+  border: 2px solid green;
+  color: green;
+  transform: scale(1.1);
 }
 
 #main {
@@ -99,34 +199,46 @@ body {
   border-right: 1px solid black;
 }
 .name-box {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
   border-bottom: 1px solid black;
   text-align: center;
 }
 
-#control-buttons {
+.temp {
   flex-grow: 1;
+}
+
+#control-buttons {
   display: flex;
   justify-content: center;
   align-items: end;
+  border-top: 1px solid black;
 }
 
 .choice-button {
   /* background-color: pink; */
+  cursor: pointer;
 }
+
 .choice-button > img {
   height: 10rem;
 }
 
+.choice-button > img:hover {
+  transform: scale(1.05);
+  /* border: 1px dotted blue; */
+}
 .choice-button:first-child {
   transform-origin: bottom;
   transform: rotate(-20deg);
 }
+
 .choice-button:last-child {
   transform-origin: bottom;
   transform: rotate(20deg);
 }
+
 #footer {
   min-height: 3rem;
   display: flex;
